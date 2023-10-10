@@ -1,0 +1,254 @@
+<!--scroll的样式-->
+<style>
+      .rectangle:hover{
+      opacity:1;
+      }
+    </style>
+
+    <style>
+      @font-face {
+      font-family: 'webfontregular';
+      src: url('hanyixuefengtijian-1-webfont.woff2') format('woff2'),
+          url('hanyixuefengtijian-1-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      }
+
+      #scrolly {
+      position: relative;
+      background-color: #ffffff;
+      padding: 1rem;
+      }
+
+      article {
+        position: relative;
+        padding: 0;
+        max-width: 20rem;
+        margin: 0 auto;
+        pointer-events: none;
+      }
+
+      figure {
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        background-color: #8a8a8a;
+      }
+
+      figure p {
+        text-align: bottom;
+        padding: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 8rem;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .step {
+        margin: 0 auto 2rem auto;
+        color: #000000;
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 17px;
+        line-height: 180%;
+        padding: 2em;
+        pointer-events: none;
+        box-shadow:0px 0px  8px 3px #bcbcbc;
+      }
+    
+      .invisible {
+        visibility: hidden;
+      }
+
+      .step:last-child {
+        margin-bottom: 0;
+      }
+
+      .step.is-active {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #000000;
+      }   
+      
+</style>
+
+<!--scroll的内容-->
+<main>
+  <section id="scrolly">
+    <figure style="height: 609px; top: 0px;">
+      <iframe src="./他们试图融化一座冰山_files/embed.html" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height:800px;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+    </figure>
+    
+    <div class="scrolly">
+    <!-- sticky graphic -->
+      <figure class="sticky">
+
+            <!-- chart stuff in here -->
+            <html style="height: 100%; z-index:1；font-family: &quot;Source Sans Pro&quot;; background-color: rgb(255, 255, 255); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+                   <head>
+                       <meta charset="utf-8">
+                   </head>
+                   <body style="height: 100%; margin: 0;">
+                       <div id="container" style="height: 100%"></div>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+                       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+                       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+                       <script type="text/javascript">
+                var dom = document.getElementById("container");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+                option = {
+                    title: {
+                        text: '中国居民膳食纳参考摄入量（mg/d）',
+                        subtext: '中国居民膳食营养素参考摄入量（2013版），科学出版社'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['AI(适宜摄入量)', 'PI-NCD(建议摄入量)']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'value',
+                        boundaryGap: [0, 0.01]
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: ['0岁~', '0.5岁~', '1岁~', '4岁~', '7岁~', '11岁~','14岁~','18岁~','50岁~','65岁~','80岁~','孕妇','乳母']},
+                    series: [
+                        {
+                            name: 'PI-NCD(建议摄入量)',
+                            type: 'bar',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [0, 0, 0, 1200,1500,1900,2200,2000,1900,1800,1700,2000,2000]
+                        
+                            
+                        },
+                        {
+                            name: 'AI(适宜摄入量)',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            type: 'bar',
+                            data: [170,350,700,900,1200,1400,1600,1500,1400,1400,1300,1500,1500]
+                        }
+                    ]
+                };
+                ;
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+                       </script>
+                   </body>
+                </html>
+      </figure>
+
+      <!-- step text -->
+      <article>
+          <div class="step" data-step="0" data-scrollama-index="0" style="height: 250px;">
+              <p> 1975 年 11 月 24 日起，因农村煤油一度紧缺、脱销，诱发了食盐抢购。成都市大兴公社传出谣言引起 15 个市县不同程度地掀起了食盐抢购风潮，412 个公社中有 331 发生抢购。不少基层公社、双代点、服务店被。<span style="color: #ffffff; background-color: #3d4ca3;"><b>“抢购一空。”</b></span></p>
+          </div>
+            <!-- ...more steps -->
+            <!--注意这里的step invisible隔开了一个step-->    
+        <div class="step invisible" data-scrollama-index="1" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="2" style="height: 250px;">
+            受访患者的平均患病时长为 4.60 年（55.26 个月），最长患病时长为<span style="color: #ffffff; background-color: #3d4ca3; "><b> 19.18 年（1 人），</b></span>除了 4 位患者不清楚自己的疾病分型之外，70%以上患者为“晚发型”。
+          </div>
+    	  <div class="step invisible" data-scrollama-index="3" style="height: 250px;">
+          </div>
+	      <div class="step invisible" data-scrollama-index="4" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="5" style="height: 250px;">
+            <b>所有患者中，47 位患者正在使用轮椅，他们的平均轮椅使用年限为 3.26 年（39.11 个月）。</b><span style="color: #ffffff; background-color: #3d4ca3;"><b> 其中，42.55%的患者完全离不开轮椅，近五分之一的患者每天至少需要使用一次轮椅。</b></span> 
+          </div>
+		    <div class="step invisible" data-scrollama-index="6" style="height: 250px;">
+          </div>
+        <div class="step invisible" data-scrollama-index="7" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="8" style="height: 250px;">
+            <b> 108 位正在使用呼吸机的患者中，他们的平均呼吸机使用年限为 4.52 年（54.21 个月）。</b><span style="color: #ffffff; background-color: #3d4ca3; "><b>44.44%的患者完全离不开呼吸机，50%的患者每天使用一次或几次呼吸机。</b></span>
+            
+          </div>
+		    <div class="step invisible" data-scrollama-index="9" style="height: 250px;">
+          </div>
+		    <div class="step invisible" data-scrollama-index="10" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="11" style="height: 250px;">
+            <span style="color: #ffffff; background-color: #3d4ca3; "><b> 72.83%的患者曾经有过误诊经历。</b></span> 患者的平均确诊年限为 1.09 年（13.13 个月），当年无法确诊时，平均确诊年限则为 4.95 年（59.40 个月）。
+          </div>
+		    <div class="step invisible" data-scrollama-index="12" style="height: 250px;">
+          </div>
+		    <div class="step invisible" data-scrollama-index="13" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="14" style="height: 250px;">
+            所有成年患者中，仅有 18 人有全职工作。<span style="color: #ffffff; background-color: #3d4ca3;"><b> 处于未就业、未就学状态的患者有 71 人，占比 65.74%，而造成这一状况的完全因为患病。</b></span>
+          </div>
+		    <div class="step invisible" data-scrollama-index="15" style="height: 250px;">
+          </div>
+		    <div class="step invisible" data-scrollama-index="16" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="17" style="height: 250px;">
+            2020 年全年，仅有<span style="color: #ffffff; background-color: #3d4ca3;" "=""><b> 不到 4 成</b></span>的成年患者有收入。其平均个人年收入为 12770.12 元。
+          </div>
+		    <div class="step invisible" data-scrollama-index="18" style="height: 250px;">
+          </div>
+        <div class="step invisible" data-scrollama-index="19" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="20" style="height: 250px;">
+            根据《2020中国罕见病综合社会调研》，患者的医疗覆盖途径多样，<span style="color: #ffffff; background-color: #3d4ca3;" "=""><b>但仍有14.3%的患者没有任何医疗保险/救助。</b></span>
+          </div>
+    	  <div class="step invisible" data-scrollama-index="21" style="height: 250px;">
+          </div>
+        <div class="step invisible" data-scrollama-index="22" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="23" style="height: 250px;">
+            社会保障覆盖方面，没有获得保障/救助的数字甚至达到了<span style="color: #ffffff; background-color: #3d4ca3;"><b>34.4%。</b></span>
+          </div>
+    	  <div class="step invisible" data-scrollama-index="24" style="height: 250px;">
+          </div>
+        <div class="step invisible" data-scrollama-index="25" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="26" style="height: 250px;">
+            成年患者的生活质量和社会支持水平远远低于普通人，在行动能力、自我照顾、日常活动、疼痛/不舒服和焦虑维度上得分都较低。<span style="color: #ffffff; background-color: #3d4ca3;" "=""><b>超过 3/4 的人无法自我照料或者进行日常活动。</b></span>
+          </div>
+    	  <div class="step invisible" data-scrollama-index="27" style="height: 250px;">
+          </div>
+        <div class="step invisible" data-scrollama-index="28" style="height: 250px;">
+          </div>
+          <div class="step" data-scrollama-index="29" style="height: 250px;">
+            精神层面上，近<span style="color: #ffffff; background-color: #3d4ca3;" "=""><b>85%的成年患者感到焦虑。</b></span>
+          </div>
+    	  <div class="step invisible" data-scrollama-index="30" style="height: 250px;">
+          </div>
+        </article>
+      </div> 
+    </section>
+</main>

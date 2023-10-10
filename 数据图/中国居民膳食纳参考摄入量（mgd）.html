@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '中国居民膳食纳参考摄入量（mg/d）',
+        subtext: '数据来源：中国居民膳食营养素参考摄入量（2013版），科学出版社',
+    
+        left:'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    color: [ '#006699', '#7ec9fd'],
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: ['AI(适宜摄入量)', 'PI-NCD(建议摄入量)']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        data: ['0岁~', '0.5岁~', '1岁~', '4岁~', '7岁~', '11岁~','14岁~','18岁~','50岁~','65岁~','80岁~','孕妇','乳母']},
+    series: [
+        {
+            name: 'PI-NCD(建议摄入量)',
+            type: 'bar',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [0, 0, 0, 1200,1500,1900,2200,2000,1900,1800,1700,2000,2000]
+        
+            
+        },
+        {
+            name: 'AI(适宜摄入量)',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            type: 'bar',
+            data: [170,350,700,900,1200,1400,1600,1500,1400,1400,1300,1500,1500]
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+
+var hours = ['1982年', '1992年', '2002年','2010年'];
+var days = ['城市','农村'];
+var data = [[0,0,11.4],[0,1,13.3],[0,2,10.9],[0,3,9.1],[1,0,13.2],[1,1,13.9],[1,2,12.4],[1,3,14.5]];
+option = {
+     title: {
+        text: '中国居民每标准人日食盐摄入量（g/标准人日）',
+    },
+    tooltip: {},
+    visualMap: {
+        max: 20,
+        inRange: {
+            color: ['#313695', '#4575b4', '#74add1', '#abd9e9']
+        }
+    },
+    xAxis3D: {
+        type: 'category',
+        data: hours
+    },
+    yAxis3D: {
+        type: 'category',
+        data: days
+    },
+    zAxis3D: {
+        type: 'value'
+    },
+    grid3D: {
+        boxWidth: 200,
+        boxDepth: 80,
+        viewControl: {
+            // projection: 'orthographic'
+        },
+        light: {
+            main: {
+                intensity: 1.2,
+                shadow: true
+            },
+            ambient: {
+                intensity: 0.3
+            }
+        }
+    },
+    series: [{
+        type: 'bar3D',
+        data: data.map(function (item) {
+            return {
+                value: [item[1], item[0], item[2]],
+            }
+        }),
+        shading: 'lambert',
+
+        label: {
+            textStyle: {
+                fontSize: 16,
+                borderWidth: 1
+            }
+        },
+
+        emphasis: {
+            label: {
+                textStyle: {
+                    fontSize: 20,
+                    color: '#900'
+                }
+            },
+            itemStyle: {
+                color: '#900'
+            }
+        }
+    }]
+};
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

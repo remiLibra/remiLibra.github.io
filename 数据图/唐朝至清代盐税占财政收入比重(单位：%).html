@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 1000px"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    color: ['#006699'],
+   title: {
+    text: '唐朝至清代盐税占财政收入比重(单位：%)',
+    left: 'center'
+   },
+  xAxis: {
+    type: 'category',
+    axisLabel: { interval: 0, rotate: 20 },
+    
+    data: ['唐元和二年（807年）', '宣宗大中七年（833年） ','宋熙丰间（1068年）', '宋乾道元年（1165年）', '元至元二十九年（1292年）', '元天历二年（1392年）', '明永乐七年（1409年）','万历二十八年（1600年）','清乾隆十八年（1753年）','清嘉庆十七年（1812年）','清宣统二年（1910年）']
+  },
+  yAxis: {
+    axisLabel: {
+        formatter: '{value} %'},
+    type: 'value'
+  },
+  series: [
+    {
+      data: [55.5,30,23.7,44.2,58.4,81.7,47.8,60,17.2,14.3,17.2],
+      type: 'line',
+      label: {
+        show: true,
+        position: 'top'
+      }
+    }
+  ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -1,0 +1,110 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.p-content {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.p-content01 {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-image: url('assets/images/hwr.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  display: table;
+}
+.p-content01_inner {
+  max-width: 450px;
+  min-width: 320px;
+  width: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: text-middle ;
+}
+.p-content01_inner h1 {
+  font-family: "Century Gothic", sans-serif;
+  color: #f9f8f7;
+  font-size: 20px;
+  text-shadow: 0 0 300px #ff0;
+}
+.p-content01_inner a {
+  color: #f9f8f7;
+  font-family: "Century Gothic", sans-serif;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+}
+.p-content01_inner a:hover {
+  color: #bd7286;
+  border: 2px solid #bd7286;
+  transition: all 0.2s ease-in;
+}
+.p-content02 {
+  width: 1000px;
+  max-width: 750px;
+  min-width: 320px;
+  width: 100%;
+  margin-top: 50px; 
+  margin-bottom: 40px;
+  margin: 100px;
+  line-height: 40px;
+}
+.p-content02 p {
+  font-size: 100%;
+  color: #3c2f2f;
+}
+.p-content03 {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  top: 0;
+  display: table;
+}
+.p-content03_inner {
+  max-width: 450px;
+  min-width: 320px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.p-content03_inner h2 {
+  font-family: "biaoti", sans-serif;
+  color: #1649b4;
+  font-size: 40px;
+  margin: auto;
+  margin-left: 240px;
+  width: 800px;
+  text-shadow: 0 0 300px #;
+}
+.p-content03_inner a {
+  color: #f9f8f7;
+  font-family: "biaoti", sans-serif;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+}
+.p-content03_inner a:hover {
+  color: #3e7757;
+  border: 1px solid #3e7757;
+  transition: all 0.2s ease-in;
+}

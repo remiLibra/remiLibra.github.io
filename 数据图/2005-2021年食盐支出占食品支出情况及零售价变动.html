@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    color: ['#003366',  '#4cabce'],
+   title: {
+        text: '2005-2021年食盐支出占食品支出情况及零售价变动',
+        left: 'center'
+      },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      crossStyle: {
+        color: '#999'
+      }
+    }
+  },
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  legend: {
+    data: ['食盐支出/人均食品支出', '零售价：食盐：同比（%，右）'],
+    left: 'left',
+    orient: 'vertical'
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ['2005', '2007', '2009', '2011', '2013', '2015', '2017','2019','2021'],
+      axisPointer: {
+        type: 'shadow'
+      }
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: '食盐支出/人均食品支出',
+      min: 0.18,
+      max: 0.26,
+      interval: 0.01,
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    },
+    {
+      type: 'value',
+      name: '零售价：食盐：同比（%，右）',
+      min: 0,
+      max: 12,
+      interval: 2,
+      axisLabel: {
+        formatter: '{value}'
+      }
+    }
+  ],
+  series: [
+    {
+      name: '食盐支出/人均食品支出',
+      type: 'line',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' %';
+        }
+      },
+      data: [
+        0.25, 0.23, 0.20, 0.19, 0.22, 0.215, 0.23, 0.217, 0.195
+      ]
+    },
+   
+    {
+      name: '零售价：食盐：同比（%，右）',
+      type: 'line',
+      yAxisIndex: 1,
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' %';
+        }
+      },
+      data: [8, 11, 3, 11, 8, 3.5, 10, 2, 1.2]
+    }
+  ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    color: [ '#006699'],
+    title: {
+        text: '2022年中国各省份原盐产量排名（单位：万吨）',
+        left:'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+   
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: [{
+        type: 'category',
+        data: ['广东', '福建', '河南', '辽宁', '陕西', '宁夏','江西','安徽','内蒙古','云南','重庆','河北','湖南','新疆','青海','四川','湖北','江苏','山东']
+    },
+    {axisLabel: {
+        formatter: '{value} 万吨'},
+        data: [1.1, 24.5, 73.0, 76.9, 77.0, 108.1,109.4,128.2,131.6,165.4,196.2,197.1,335.1,347.7,432.7,473.8,581.5,594.0,760.2]
+      
+    }
+    ],
+    series: [
+        {
+            name: '2022年',
+            type: 'bar',
+            data: [1.1, 24.5, 73.0, 76.9, 77.0, 108.1,109.4,128.2,131.6,165.4,196.2,197.1,335.1,347.7,432.7,473.8,581.5,594.0,760.2]
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

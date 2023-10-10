@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '常见各类调味品中的钠含量',
+        left:'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: ['钠（mg/100g食物）', '相当于盐含量（mg/100g食物）']
+    },
+     color: ['#4da7ca','#144db8'],
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['沙拉酱       ', '番茄沙司       ', '甜面酱       ', '腐乳（红）/酱豆腐       ', '大头菜       ', '萝卜干       ', '榨菜       ','腌韭菜花       ','酱油（均值）      ','豆瓣酱       ','生抽       ','老抽       ','辣椒酱/辣椒糊      ','味精      ','鸡精      ','盐      ']
+    
+    },
+    series: [
+        {
+            name: '钠（mg/100g食物）',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [734, 1047, 2097, 3091, 6060, 4203, 4253,5184,5757,6012,6385,6910,8028,8160,18864,40000]
+        },
+        {
+            name: '相当于盐含量（mg/100g食物）',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideLeft'
+            },
+            data: [1860,2660,5330,7850,15390,10680,10800,13170,14620,15270,16220,17550,20390,20730,47920,100000]
+        },
+        
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

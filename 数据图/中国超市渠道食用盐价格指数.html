@@ -1,0 +1,80 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-smooth&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcsA2musiaRjgB5gEDkgtHKC_aoKGxgQHqAEdoMoJg-xmAUroAW3QO9ygHgtA4MaAHUzoAacqVwAzWnQDGOaGBwAnOnIC-JALqyMwYFkggCqCmC0QA5g-30AhlQgBnXej0nYVACCHp7WcmAAniD4sKqumg7AWhEycu5eADKuAEY4WNawEBraAG6u-bAADNKwWsBg8TEAzJWwfnIAJvGuBIR0AEyVAIwAHIAuekOAEOYyA8Pj_dPSs6NjTYvL4wAs64MrAKw7c2MAbIcrAOxn4yNXYwCct0OVj1Mzu-NDC2_DdxNnv18lrtfmtvkNftswb8DlCTv8xpdYTdYQ9YU94UNXkCfhNAbNBn9vgS8YMCaDsQTIRTKmMYdS4WDxoj6cj6aj6eiiTTMYcCZ9eUNCRTBSTKv1BeT8YKqVLaQKGcKEfLWbL2bLOYqeUTBfyif0hfj9aL-vrJaT9TLzXK9QrDUqbSqrWqrRq7VqKfrdRSmgbST7jT6zWKfZbg9bvba_fbDCR2ugIsEvGFbFEYnQylgAK44VIUWAAWyKBDulWqcnQ-fcBCGm1L_goRU0Wgz1brsf8nm0EBwoSIchsea6DV6TzrT3BADoTdInsdKhORptpHc7nsJ0NjjPhvPjv0t_1jlPNyu7hPNnungez00t5URhPzkvL-cJ8dzlumoeRkNl9-J3cf3HNc7hGLcRlPfo9jA-cmgvSpznvY47g_ecVy3Y5D03J5NnvTF0NPSpkKeO4XyaQDMTXSob1nJpX3fYjaLQp4RhfPZyKeCdKifJ5aMfMChnXGdLwfKCnj2NcELA08AI_TYHzgzY1xGUThn6BcPxfTYnyow9wQ_XSiKozTtKaYytyGWj-nojcBP6bTzjUvZqNGNSHKE-CF3ou9HJU2C6K3cSzyIijBIouSNy3O5aLvISEKCoS9nvSTMXOYDRMgtTTISuSoqEkiJyaaj-iaOTFJnOzpPKqj_ywyDaNEjd6vouykqfT81IPcq7kPfoiM_OSmnS855yGZqmlPZSZxaSqLJY9cL1g09MWMcsMFTegsCKHN61ITx8zMMAAAsCDsbN9CMFA9AAbiAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: [
+    {
+      text: '中国超市渠道食用盐价格指数',
+      left:'center'
+    }
+  ],
+ tooltip: {
+    trigger: 'axis'
+  },
+  xAxis: {
+    type: 'category',
+    axisLabel: { interval: 0, rotate: 30 },
+    data: ['2018年1月','2018年2月','2018年3月','2018年4月','2018年5月','2018年6月','2018年7月','2018年8月','2018年9月','2018年10月','2018年11月','2018年12月','2019年1月','2019年2月','2019年3月','2019年4月','2019年5月','2019年6月','2019年7月','2019年8月','2019年9月','2019年10月','2019年11月','2019年12月','2020年1月','2020年2月','2020年3月','2020年4月','2020年5月','2020年6月','2018年7月','2020年8月','2020年9月','2020年10月','2020年11月','2020年12月','2021年1月','2021年2月','2021年3月','2021年4月','2021年5月','2021年6月','2021年7月','2021年8月','2021年9月','2021年10月','2021年11月','2021年12月','2022年1月','2022年2月','2022年3月','2022年4月','2022年5月','2022年6月','2022年7月','2022年8月','2022年9月','2022年10月','2022年11月','2022年12月','2023年1月','2023年2月','2023年3月','2023年4月','2023年5月','2023年6月','2023年7月']
+  },
+  yAxis: {
+    type: 'value',
+     min: 900,
+      max: 1400,
+      interval: 100,
+  },
+  series: [
+    {
+      data: [1000,1019.22,1060.84,995.16,1010.62,1026.26,999.42,1026.43,1008.74,1027.67,1036.81,981.91,1015.98,1089.25,1080.32,1078.69,1030.99,1066.6,1048.11,1069.09,1097.31,1115.03,1063.67,1093.99,1087.51,1110.04,1103.74,1081.1,1102.75,1055.78,1089.91,1034.72,1045.85,1012.8,1037.44,1036.19,1036.19,1037.44,1037.44,1013.27,1161.24,1072.53,1182.72,1107.87,1082.55,1032.67,1055.49,1115.1,1154.16,1093.08,1178.49,1158.78,1175.95,1252.37,1154.93,1197.33,1234.45,1249.9,1203.96,1253.5,1163.57,1248.74,1362.26,1296.29,1364.35,1270.17,1239.85,1309.9,1387.12,1329.11],
+      type: 'line',
+      smooth: true
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
